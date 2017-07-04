@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Register
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="register" (ngSubmit)="sendInfo();">
+
+  <ion-item>    
+  	<ion-label>Nombre: </ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf=" !register.controls.name.valid && register.controls.name.dirty" >
+      <p class="form-invalido">Debe ser de más de dos letras y sin números.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Apellido: </ion-label>
+    <ion-input type="text" formControlName="lastname"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf=" !register.controls.lastname.valid && register.controls.lastname.dirty">
+      <p class="form-invalido">Debe ser de más de dos letras y sin números.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Email: </ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf=" !register.controls.email.valid && register.controls.email.dirty">
+      <p class="form-invalido">Ejemplo: example@email.com</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Identificación: </ion-label>
+    <ion-input type="tel" formControlName="id"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf=" !register.controls.id.valid && register.controls.id.dirty">
+      <p class="form-invalido">Ingrese su cédula. Mínimo 6 números.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Teléfono: </ion-label>
+    <ion-input type="tel" formControlName="phone"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf=" !register.controls.phone.valid && register.controls.phone.dirty">
+      <p class="form-invalido">Ingrese un teléfono válido. Min. 6 números.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Contraseña: </ion-label>
+    <ion-input type="text" formControlName="pass"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf=" !register.controls.pass.valid && register.controls.pass.dirty">
+      <p class="form-invalido">De 4 a 8 caracteres.</p>
+  </ion-item>
+
+  	
+  	<button ion-button type="submit" [disabled]=!register.valid>
+    Crear Cuenta
+    </button>
+
+  </form>
+</ion-content>

@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="login" (ngSubmit)="sendInfo();">
+  	 <ion-item>
+    <ion-label>Identificación: </ion-label>
+    <ion-input type="tel" formControlName="id"></ion-input>
+  </ion-item>
+
+   <ion-item>
+    <ion-label>Contraseña: </ion-label>
+    <ion-input type="password" formControlName="pass"></ion-input>
+  </ion-item>
+  	
+
+    
+    <button ion-button type='submit' [disabled]="!login.valid">
+        Ingresar
+    </button>    
+  </form>
+
+  <button ion-button (click) = "goToRegisterPage()">
+        Crear Cuenta
+    </button>
+
+</ion-content>

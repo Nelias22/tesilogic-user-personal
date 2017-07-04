@@ -1,0 +1,12 @@
+page-login {
+	form{
+		width: 25em;
+		margin: 1em;
+		label, input{
+			margin: 0.5em;			
+		}
+		input{ float: right};
+		label{float: left};
+	}
+
+}
