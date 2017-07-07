@@ -9,12 +9,12 @@
 <ion-content padding>
   <form [formGroup]="login" (ngSubmit)="sendInfo();">
   	 <ion-item>
-    <ion-label>Identificación: </ion-label>
-    <ion-input type="tel" formControlName="id"></ion-input>
+    <ion-label stacked>Usuario </ion-label>
+    <ion-input type="text" formControlName="user"></ion-input>
   </ion-item>
 
    <ion-item>
-    <ion-label>Contraseña: </ion-label>
+    <ion-label stacked>Contraseña </ion-label>
     <ion-input type="password" formControlName="pass"></ion-input>
   </ion-item>
   	
@@ -25,7 +25,7 @@
     </button>    
   </form>
 
-  <button ion-button (click) = "goToRegisterPage()">
+  <button id="registerBtn" ion-button (click) = "goToRegisterPage()">
         Crear Cuenta
     </button>
 
