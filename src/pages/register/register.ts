@@ -39,16 +39,21 @@ export class RegisterPage {
 
   		this.http.post(link, myData, options)
  		.subscribe(data => {
+
 		 console.log(data["_body"]);
+		 this.navCtrl.pop(LoginPage);
+  			let toast = this.toastCtrl.create( { message: 'Cuenta creada con éxito', duration: 3000 } );
+    		toast.present();
+
+
  		}, error => {
- 			console.log(myData);
- 		 console.log("Oooops!");
- 		});
+ 			console.log(error["_body"]) 			
+ 			let toast = this.toastCtrl.create( { message: 'Error: Correo o Identificación ya han sido registradas en el sistema', duration: 3000 } );
+    		toast.present();
 
-  		//this.navCtrl.pop(LoginPage);
-  		let toast = this.toastCtrl.create( { message: 'Cuenta creada con éxito', duration: 3000 } );
-    	//toast.present();
+ 			});
 
+  		
   }
 
 }

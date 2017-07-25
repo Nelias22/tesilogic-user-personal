@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, MenuController } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
 import {RegisterPage} from '../register/register';
+import {MainPage} from '../main/main';
 
 @Component({
   selector: 'page-login',
@@ -12,9 +13,11 @@ import {RegisterPage} from '../register/register';
 export class LoginPage {
 
 	private login: FormGroup;
-  constructor(public navCtrl: NavController, private formBuilder: FormBuilder, public toastCtrl: ToastController, public http: Http) {
+  constructor(public navCtrl: NavController, private formBuilder: FormBuilder, public toastCtrl: ToastController, public http: Http, public menuCtrl: MenuController) {
 
-  	this.login = this.formBuilder.group({
+  	menuCtrl.enable(false);
+
+    this.login = this.formBuilder.group({
   		
   		user:['', Validators.required],  		
   		pass:['', Validators.required]
@@ -36,14 +39,17 @@ export class LoginPage {
 
   		this.http.post(link, myData, options)
  		.subscribe(data => {
-		 console.log(data["_body"]);
+ 			let toast = this.toastCtrl.create( { message: 'Inicio de sesión exitoso', duration: 3000 } );
+    		toast.present();
+		 	console.log(data["_body"]);
+		 	this.navCtrl.push(MainPage);		 	
  		}, error => {
- 			console.log(myData);
- 		 console.log("Oooops!");
+ 			console.log(error["_body"]);
+ 		 	let toast = this.toastCtrl.create( { message: 'Error en inicio de sesión, verificar datos', duration: 3000 } );
+    		toast.present();
  		});
 
-  		let toast = this.toastCtrl.create( { message: 'Send data to server', duration: 3000 } );
-    	toast.present();
+  		
 
   	}
 }

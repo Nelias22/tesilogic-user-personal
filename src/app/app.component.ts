@@ -17,6 +17,12 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-  }
+
+   } 
+
+   logOut(){
+     console.log("Logged Out");   
+    }
+
 }
 

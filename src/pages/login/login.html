@@ -7,6 +7,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+
   <form [formGroup]="login" (ngSubmit)="sendInfo();">
   	 <ion-item>
     <ion-label stacked>Usuario </ion-label>
@@ -28,5 +29,7 @@
   <button id="registerBtn" ion-button (click) = "goToRegisterPage()">
         Crear Cuenta
     </button>
+  
+  
 
 </ion-content>
