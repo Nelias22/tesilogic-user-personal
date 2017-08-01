@@ -5,22 +5,26 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule} from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { MainPage } from '../pages/main/main'
+import { ServiceFormPage } from '../pages/service-form/service-form';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
     RegisterPage,
-    MainPage
+    MainPage,
+    ServiceFormPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -28,7 +32,8 @@ import { MainPage } from '../pages/main/main'
     MyApp,
     LoginPage,
     RegisterPage,
-    MainPage
+    MainPage,
+    ServiceFormPage
   ],
   providers: [
     StatusBar,

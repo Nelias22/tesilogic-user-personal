@@ -2,6 +2,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { ServiceFormPage } from '../service-form/service-form';
+
 declare var google; //this is to prevent any warnings from TypeScript about the google object that the Google Maps SDK makes available to us
 
 /**
@@ -56,6 +58,10 @@ export class MainPage {
   openMenu(){
   	this.menuCtrl.open();
 
+  }
+
+  newService(){
+  	this.navCtrl.push(ServiceFormPage);
   }
 
 }
