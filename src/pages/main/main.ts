@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Observable } from 'rxjs/Rx';
 
 import { ServiceFormPage } from '../service-form/service-form';
 
@@ -49,11 +50,22 @@ export class MainPage {
     	animation: google.maps.Animation.DROP,
     	position: this.map.getCenter()
  	 });
+
+       let timer= Observable.timer(10000,10000);
+       timer.subscribe(t=>
+
+       		{
+       			let newCenter= new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+       			marker.positon= newCenter;
+       			console.log("new center"+ newCenter);
+       		}
+       	);
  
     }, (err) => {
       console.log(err);
     });
   }
+
 
   openMenu(){
   	this.menuCtrl.open();

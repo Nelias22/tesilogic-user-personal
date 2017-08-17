@@ -12,6 +12,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { MainPage } from '../pages/main/main'
 import { ServiceFormPage } from '../pages/service-form/service-form';
+import { GetStorageInfoService} from '../services/get-storage-info/get-storage-info.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ServiceFormPage } from '../pages/service-form/service-form';
   providers: [
     StatusBar,
     SplashScreen,
+    GetStorageInfoService,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
