@@ -57,7 +57,7 @@ export class MainPage {
        		{
        			let newCenter= new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
        			marker.positon= newCenter;
-       			console.log("new center"+ newCenter);
+       			//console.log("new center"+ newCenter);
        		}
        	);
  
